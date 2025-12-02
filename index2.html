@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Седона - город в Аризоне</title>
+    <style>
+        /* Базовые стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Шапка */
+        .header {
+            background-color: #f8f8f8;
+            padding: 20px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .phone {
+            font-size: 24px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        
+        .hashtag {
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        .logo {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        /* Навигация */
+        .nav {
+            background-color: #2c3e50;
+            padding: 15px 0;
+        }
+        
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 40px;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #3498db;
+        }
+        
+        /* Герой-секция */
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            background-color: #f0f8ff;
+        }
+        
+        .hero-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Преимущества */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 60px 0;
+        }
+        
+        .feature {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+        
+        .feature-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        /* Причины */
+        .reasons {
+            background-color: #34495e;
+            color: white;
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: white;
+        }
+        
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .reason {
+            background-color: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .reason-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+        
+        .reason-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        /* Форма поиска */
+        .search {
+            padding: 60px 0;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+        
+        .search-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .search-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Подвал */
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: #3498db;
+        }
+        
+        .copyright {
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .nav-list {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .reasons-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .form-row {
+                flex-direction: column;
+            }
+            
+            .hero-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="phone">+7 800 555-86-28</div>
+                <div class="hashtag">#visitSEDONA</div>
+            </div>
+            <div class="logo">
+                <h1>Седона</h1>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Навигация -->
+    <nav class="nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="#info" class="nav-link">Информация</a></li>
+                <li><a href="#media" class="nav-link">Фото и видео</a></li>
+                <li><a href="#map" class="nav-link">Карта штата</a></li>
+                <li><a href="#hotels" class="nav-link">Гостиницы</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Основное содержимое -->
+    <main>
+        <!-- Герой-секция -->
+        <section class="hero">
+            <div class="container">
+                <h2 class="hero-title">Седона — небольшой городок в Аризоне, заслуживающий большего!</h2>
+                <p class="hero-subtitle">Рассмотрим 5 причин, по которым Седона круче, чем Гранд Каньон!</p>
+            </div>
+        </section>
+        
+        <!-- Преимущества -->
+        <section class="container">
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🏠</div>
+                    <h3 class="feature-title">Жильё</h3>
+                    <p>Рекомендуем пожить в настоящем мотеле, всё как в кино!</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🍔</div>
+                    <h3 class="feature-title">Еда</h3>
+                    <p>Всегда заказывайте фирменный бургер, вы не разочаруетесь!</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎁</div>
+                    <h3 class="feature-title">Сувениры</h3>
+                    <p>Не только китайского, но и местного производства!</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Причины -->
+        <section class="reasons" id="reasons">
+            <div class="container">
+                <h2 class="section-title">5 причин выбрать Седону</h2>
+                <div class="reasons-grid">
+                    <div class="reason">
+                        <div class="reason-number">— №1 —</div>
+                        <h3 class="reason-title">Настоящий городок</h3>
+                        <p>Седона — не аттракцион для туристов, там течёт своя жизнь</p>
+                    </div>
+                    <div class="reason">
+                        <div class="reason-number">— №2 —</div>
+                        <h3 class="reason-title">Там есть мост дьявола</h3>
+                        <p>Да, по нему можно пройти! Если конечно вы осмелитесь</p>
+                    </div>
+                    <div class="reason">
+                        <div class="reason-number">— №3 —</div>
+                        <h3 class="reason-title">Небольшая площадь</h3>
+                        <p>Все достопримечательности находятся очень близко</p>
+                    </div>
+                    <div class="reason">
+                        <div class="reason-number">— №4 —</div>
+                        <h3 class="reason-title">Красивая дорога</h3>
+                        <p>Ехать в Седону из Лас-Вегаса совсем не скучно!</p>
+                    </div>
+                    <div class="reason">
+                        <div class="reason-number">— №5 —</div>
+                        <h3 class="reason-title">Мало туристов</h3>
+                        <p>Большинство едет в Гранд Каньон и толпится там</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Поиск гостиницы -->
+        <section class="search" id="hotels">
+            <div class="container">
+                <h2 class="search-title">Заинтересовались?</h2>
+                <div class="search-form">
+                    <p style="margin-bottom: 20px;">Укажите предполагаемые даты поездки, и мы покажем вам лучшие предложения гостиниц в Седоне</p>
+                    
+                    <form action="#" method="post">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="checkin" class="form-label">Дата заезда:</label>
+                                <input type="date" id="checkin" name="checkin" class="form-input" value="2017-04-24">
+                            </div>
+                            <div class="form-group">
+                                <label for="checkout" class="form-label">Дата выезда:</label>
+                                <input type="date" id="checkout" name="checkout" class="form-input" value="2017-06-04">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="adults" class="form-label">Взрослые:</label>
+                                <input type="number" id="adults" name="adults" class="form-input" value="2" min="1" max="10">
+                            </div>
+                            <div class="form-group">
+                                <label for="children" class="form-label">Дети:</label>
+                                <input type="number" id="children" name="children" class="form-input" value="0" min="0" max="10">
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn">Найти гостиницу</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Информация</a></li>
+                        <li><a href="#" class="footer-link">Фото и видео</a></li>
+                        <li><a href="#" class="footer-link">Карта штата</a></li>
+                        <li><a href="#" class="footer-link">Гостиницы</a></li>
+                    </ul>
+                </div>
+                <div class="copyright">
+                    <p>Website by © 2024</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Простой скрипт для формы
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const searchBtn = document.querySelector('.btn');
+            
+            searchBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const checkin = document.getElementById('checkin').value;
+                const checkout = document.getElementById('checkout').value;
+                const adults = document.getElementById('adults').value;
+                const children = document.getElementById('children').value;
+                
+                if (!checkin || !checkout) {
+                    alert('Пожалуйста, укажите даты заезда и выезда');
+                    return;
+                }
+                
+                if (new Date(checkout) <= new Date(checkin)) {
+                    alert('Дата выезда должна быть позже даты заезда');
+                    return;
+                }
+                
+                alert(`Поиск гостиницы с ${checkin} по ${checkout} для ${adults} взрослых и ${children} детей`);
+            });
+            
+            // Установка минимальной даты - сегодня
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('checkin').min = today;
+            document.getElementById('checkout').min = today;
+        });
+    </script>
+</body>
+</html>
